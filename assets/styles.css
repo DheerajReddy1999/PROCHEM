@@ -1,0 +1,125 @@
+:root {
+  --bg: #060b18;
+  --bg-2: #0e1b37;
+  --card: #0f1a2e;
+  --muted: #9fb0c7;
+  --text: #e7edf5;
+  --brand: #12b981;
+  --brand-2: #0ea5e9;
+  --ring: rgba(14, 165, 233, .35);
+  --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+* { box-sizing: border-box }
+html, body { margin: 0; padding: 0; height: 100% }
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  color: var(--text);
+}
+a { color: inherit; text-decoration: none }
+img { max-width: 100%; display: block; border-radius: 1rem }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1rem }
+
+/* Header + graphics */
+header { position: relative; overflow: hidden; border-bottom: 1px solid rgba(159,176,199,.15) }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0 }
+.brand { display: flex; gap: .6rem; align-items: center; font-weight: 800; letter-spacing: .3px }
+.logo { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: radial-gradient(120px 80px at 20% 20%, #20314d, #0b1220); box-shadow: var(--shadow) }
+.nav-links { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap }
+/* Nav underline glide for non-button links */
+.nav-links a:not(.btn) { position: relative }
+.nav-links a:not(.btn)::after { content: ""; position: absolute; left: 20%; right: 80%; bottom: -6px; height: 2px; background: linear-gradient(90deg, var(--brand), var(--brand-2)); transition: left .2s ease, right .2s ease; opacity: .9 }
+.nav-links a:not(.btn):hover::after { left: 0; right: 0 }
+
+.btn { display: inline-flex; align-items: center; gap: .5rem; background: linear-gradient(90deg, var(--brand), var(--brand-2)); color: #04201a; border: none; padding: .65rem .95rem; border-radius: .8rem; font-weight: 800; box-shadow: 0 8px 24px var(--ring); transition: transform .08s ease; cursor: pointer; position: relative; overflow: hidden; isolation: isolate }
+.btn:hover { transform: translateY(-1px) }
+.btn.ghost { background: transparent; border: 1px solid rgba(159,176,199,.25); color: var(--text) }
+
+/* StarBorder effect (CSS version of your React/Tailwind component) */
+:root { --star-color: rgba(255,255,255,.9); --star-speed: 6s }
+@keyframes star-movement-bottom { 0% { transform: translate(0%,0%); opacity: 1 } 100% { transform: translate(-100%,0%); opacity: 0 } }
+@keyframes star-movement-top { 0% { transform: translate(0%,0%); opacity: 1 } 100% { transform: translate(100%,0%); opacity: 0 } }
+.btn::before, .btn::after { content: ""; position: absolute; width: 300%; height: 50%; border-radius: 999px; pointer-events: none; z-index: 0; opacity: .22; background: radial-gradient(circle, var(--star-color), transparent 10%) }
+.btn::before { bottom: -11px; right: -250%; animation: star-movement-bottom var(--star-speed) linear infinite alternate }
+.btn::after { top: -10px; left: -250%; animation: star-movement-top var(--star-speed) linear infinite alternate }
+
+
+.hero-graphics { position: absolute; inset: 0; pointer-events: none }
+.orb { position: absolute; filter: blur(30px); border-radius: 999px; opacity: .55; animation: float 12s ease-in-out infinite }
+.orb-a { width: 340px; height: 340px; background: #0ea5e9; top: -60px; left: 10% }
+.orb-b { width: 420px; height: 420px; background: #10b981; bottom: -140px; right: 8%; animation-duration: 16s }
+@keyframes float { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-14px) } }
+.grid-overlay { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 46px 46px; mask-image: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.1)) }
+.wave { position: absolute; bottom: -1px; left: 0; width: 100%; height: 120px; fill: #0b1426; opacity: .8 }
+
+/* Hero */
+.hero { padding: 3.5rem 0 2.5rem }
+.hero-inner { text-align: center }
+.kicker { display: inline-block; padding: .35rem .6rem; border: 1px solid rgba(159,176,199,.25); border-radius: 999px; color: var(--muted); font-size: .85rem }
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin: .6rem 0 .35rem }
+.tagline { color: var(--muted); max-width: 760px; margin: 0 auto }
+.hero-cta { display: flex; gap: .8rem; justify-content: center; margin-top: 1.2rem; flex-wrap: wrap }
+
+/* Sections */
+section { padding: 3rem 0 }
+h2 { font-size: 1.6rem; margin: 0 0 1.2rem }
+.muted { color: var(--muted) }
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem }
+.card { grid-column: span 12; background: linear-gradient(180deg, #101b32 0%, #0b1426 100%); border: 1px solid rgba(159,176,199,.18); border-radius: 1.1rem; padding: 1rem; box-shadow: var(--shadow) }
+.card h3 { margin: .5rem 0 .25rem }
+.card p { color: var(--muted) }
+/* Card hover lift + image zoom */
+.card { transition: transform .16s ease, border-color .2s ease, box-shadow .2s ease }
+.card:hover { transform: translateY(-3px); border-color: rgba(14,165,233,.35); box-shadow: 0 10px 30px var(--ring) }
+.card img { transition: transform .25s ease }
+.card:hover img { transform: scale(1.04) }
+@media(min-width:700px){ .card{ grid-column: span 4 } }
+
+/* Contact */
+.contact-wrap { display: grid; gap: 1.2rem }
+.contact-form { display: grid; gap: .8rem }
+input, textarea { width: 100%; padding: .85rem; border-radius: .9rem; background: #0a1322; border: 1px solid rgba(159,176,199,.25); color: var(--text) }
+input:hover, textarea:hover { border-color: rgba(14,165,233,.35) }
+input:focus, textarea:focus { outline: none; border-color: var(--brand-2); box-shadow: 0 0 0 4px var(--ring) }
+textarea { min-height: 120px; resize: vertical }
+.notice { color: var(--muted); font-size: .92rem }
+
+/* Footer */
+footer { border-top: 1px solid rgba(159,176,199,.15) }
+.footer-wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 1.1rem 0; color: var(--muted) }
+
+/* Founder page */
+.two-col { display: grid; gap: 1.2rem; align-items: start }
+@media(min-width:900px){ .two-col { grid-template-columns: 5fr 7fr } }
+.avatar { width: 100%; border-radius: 1rem; box-shadow: var(--shadow) }
+
+/* Gallery */
+.gallery-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) }
+.gallery-grid img { border-radius: .8rem }
+
+/* Customers */
+.logos-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); align-items: stretch }
+.logo-card { background: linear-gradient(180deg, #0e1a31 0%, #0a1325 100%); border: 1px solid rgba(159,176,199,.22); border-radius: 1rem; padding: 1.25rem; text-align: center; color: var(--text); box-shadow: var(--shadow); font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px; position: relative; overflow: hidden }
+.logo-card { transition: transform .16s ease, box-shadow .2s ease, border-color .2s ease; will-change: transform }
+.logo-card::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; background: radial-gradient(80% 40% at 50% 0%, rgba(14,165,233,.25), transparent 60%); opacity: 0; transition: opacity .2s ease }
+.logo-card:hover { transform: translateY(-3px) scale(1.02); border-color: rgba(14,165,233,.5); box-shadow: 0 10px 32px rgba(14,165,233,.25) }
+.logo-card:hover::before { opacity: 1 }
+.logo-card img { max-height: clamp(72px, 10vw, 130px); max-width: 92%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0,0,0,.35)); margin-bottom: .65rem }
+.logo-card img { transition: transform .25s ease, filter .2s ease }
+.logo-card:hover img { transform: scale(1.06); filter: drop-shadow(0 4px 14px rgba(14,165,233,.25)) }
+.logo-card .label { display: block; color: var(--text); font-weight: 800; font-size: 1.05rem; letter-spacing: .2px; transition: color .2s ease }
+.logo-card:hover .label { color: var(--brand-2) }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-links a:not(.btn)::after,
+  .card,
+  .card img,
+  .logo-card,
+  .logo-card img,
+  .logo-card .label { transition: none !important }
+}
+
+/* Chips (Industries Served) */
+.chips { display: flex; flex-wrap: wrap; gap: .6rem }
+.chip { padding: .4rem .7rem; border-radius: 999px; border: 1px solid rgba(159,176,199,.25); color: var(--muted); background: rgba(10,19,34,.6) }

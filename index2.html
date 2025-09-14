@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PROCHEM INDUSTRIES — FRP / PP / HDPE Solutions</title>
+  <meta name="description" content="Design, fabrication, erection & commissioning of FRP/PP/HDPE equipment, scrubbers and pipelines. Hyderabad-based." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg
+			xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🏭%3C/text%3E%3C/svg%3E">
+  <style>
+   :root {
+    --bg: #060b18;
+    --bg2: #0e1b37;
+    --card: #0f1a2e;
+    --muted: #9fb0c7;
+    --text: #e7edf5;
+    --brand: #12b981;
+    --brand2: #0ea5e9;
+    --ring: rgba(14, 165, 233, .35);
+    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+   }
+
+   * {
+    box-sizing: border-box
+   }
+
+   html,
+   body {
+    margin: 0;
+    padding: 0;
+    height: 100%
+   }
+
+   body {
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    color: var(--text)
+   }
+
+   a {
+    color: inherit;
+    text-decoration: none
+   }
+
+   img {
+    max-width: 100%;
+    display: block;
+    border-radius: 1rem;
+    object-fit: cover
+   }
+
+   .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem
+   }
+
+   header {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(159, 176, 199, .15)
+   }
+
+   .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0
+   }
+
+   .brand {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    font-weight: 800;
+    letter-spacing: .3px
+   }
+
+   .logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(120px 80px at 20% 20%, #20314d, #0b1220);
+    box-shadow: var(--shadow)
+   }
+
+   .nav-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center
+   }
+
+   .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: linear-gradient(90deg, var(--brand), var(--brand2));
+    color: #04201a;
+    border: none;
+    padding: .65rem .95rem;
+    border-radius: .8rem;
+    font-weight: 800;
+    box-shadow: 0 8px 24px var(--ring);
+    transition: transform .08s ease;
+    cursor: pointer
+   }
+
+   .btn:hover {
+    transform: translateY(-1px)
+   }
+
+   .btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(159, 176, 199, .25);
+    color: var(--text)
+   }
+
+   .hero-graphics {
+    position: absolute;
+    inset: 0;
+    pointer-events: none
+   }
+
+   .orb {
+    position: absolute;
+    filter: blur(30px);
+    border-radius: 999px;
+    opacity: .55;
+    animation: float 12s ease-in-out infinite
+   }
+
+   .orb-a {
+    width: 340px;
+    height: 340px;
+    background: #0ea5e9;
+    top: -60px;
+    left: 10%
+   }
+
+   .orb-b {
+    width: 420px;
+    height: 420px;
+    background: #10b981;
+    bottom: -140px;
+    right: 8%;
+    animation-duration: 16s
+   }
+
+   @keyframes float {
+
+    0%,
+    100% {
+     transform: translateY(0)
+    }
+
+    50% {
+     transform: translateY(-14px)
+    }
+   }
+
+   .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .8), rgba(0, 0, 0, .1));
+   }
+
+   .wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    fill: #0b1426;
+    opacity: .8
+   }
+
+   .hero {
+    padding: 3.5rem 0 2.2rem
+   }
+
+   .hero-inner {
+    text-align: center
+   }
+
+   .kicker {
+    display: inline-block;
+    padding: .35rem .6rem;
+    border: 1px solid rgba(159, 176, 199, .25);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: .85rem
+   }
+
+   h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: .6rem 0 .35rem
+   }
+
+   .tagline {
+    color: var(--muted);
+    max-width: 780px;
+    margin: 0 auto
+   }
+
+   .hero-cta {
+    display: flex;
+    gap: .8rem;
+    justify-content: center;
+    margin-top: 1.2rem;
+    flex-wrap: wrap
+   }
+
+   section {
+    padding: 3rem 0
+   }
+
+   h2 {
+    font-size: 1.6rem;
+    margin: 0 0 1.2rem
+   }
+
+   .muted {
+    color: var(--muted)
+   }
+
+   .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem
+   }
+
+   .card {
+    grid-column: span 12;
+    background: linear-gradient(180deg, #101b32 0%, #0b1426 100%);
+    border: 1px solid rgba(159, 176, 199, .18);
+    border-radius: 1.1rem;
+    padding: 1rem;
+    box-shadow: var(--shadow)
+   }
+
+   .card h3 {
+    margin: .5rem 0 .25rem
+   }
+
+   .card p,
+   .card li {
+    color: var(--muted)
+   }
+
+   .card img {
+    height: 180px;
+    margin-bottom: .6rem
+   }
+
+   @media(min-width:700px) {
+    .card {
+     grid-column: span 4
+    }
+   }
+
+   /* Gallery */
+   .gallery {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem
+   }
+
+   .gallery figure {
+    grid-column: span 12;
+    background: #0b1426;
+    border: 1px solid rgba(159, 176, 199, .18);
+    border-radius: 1rem;
+    padding: .7rem
+   }
+
+   .gallery img {
+    height: 260px;
+    width: 100%
+   }
+
+   .gallery figcaption {
+    color: var(--muted);
+    font-size: .95rem;
+    margin: .5rem .2rem 0
+   }
+
+   @media(min-width:760px) {
+    .gallery figure {
+     grid-column: span 6
+    }
+   }
+
+   @media(min-width:1020px) {
+    .gallery figure {
+     grid-column: span 4
+    }
+   }
+
+   .contact-wrap {
+    display: grid;
+    gap: 1.2rem
+   }
+
+   .contact-card {
+    background: #0b1426;
+    border: 1px solid rgba(159, 176, 199, .18);
+    border-radius: 1rem;
+    padding: 1rem
+   }
+
+   footer {
+    border-top: 1px solid rgba(159, 176, 199, .15)
+   }
+
+   .footer-wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1.1rem 0;
+    color: var(--muted)
+   }
+  </style>
+ </head>
+ <body>
+  <header>
+   <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Home">
+     <span class="logo" aria-hidden>🏭</span>
+     <span>PROCHEM INDUSTRIES</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+     <a href="index.html">Home</a>
+     <a href="founder.html">Founder</a>
+     <a href="#contact" class="btn">Contact</a>
+    </nav>
+   </div>
+   <div class="hero-graphics" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="grid-overlay"></div>
+    <svg class="wave" viewBox="0 0 1440 200" preserveAspectRatio="none">
+     <path d="M0,64L60,64C120,64,240,64,360,96C480,128,600,192,720,186.7C840,181,960,107,1080,85.3C1200,64,1320,96,1380,112L1440,128L1440,0L0,0Z"></path>
+    </svg>
+   </div>
+  </header>
+  <main>
+   <section class="hero">
+    <div class="container hero-inner">
+     <span class="kicker">FRP • PP/PVDF • HDPE — Equipment & Pipelines</span>
+     <h1>Corrosion-resistant solutions for industry.</h1>
+     <p class="tagline">Design, fabrication, erection & commissioning of process equipment, scrubbers and pipelines.</p>
+     <div class="hero-cta">
+      <a class="btn" href="#gallery">See our work</a>
+      <a class="btn ghost" href="founder.html">Meet the Founder</a>
+     </div>
+    </div>
+   </section>
+   <!-- Products using your photos -->
+   <section>
+    <div class="container">
+     <h2>Products & Systems</h2>
+     <div class="grid" style="margin-top:1.2rem">
+      <article class="card">
+       <img src="images/tank-horizontal.jpeg" alt="FRP horizontal storage tank">
+       <h3>FRP Tanks</h3>
+       <p>Chemical storage tanks with corrosion-resistant laminate schedules and robust fittings.</p>
+      </article>
+      <article class="card">
+       <img src="images/tank-rect.jpeg" alt="FRP rectangular process tank">
+       <h3>FRP Process Tanks</h3>
+       <p>Custom rectangular tanks for ETP/process applications with nozzles, drains and supports.</p>
+      </article>
+      <article class="card">
+       <img src="images/scrubber-twin.jpeg" alt="Twin-stage FRP scrubber system">
+       <h3>FRP Scrubber Systems</h3>
+       <p>Packed-bed/twin-stage scrubbing systems with ducting, dampers and exhaust stacks.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <!-- Work gallery with all 4 images -->
+   <section id="gallery">
+    <div class="container">
+     <h2>Work Gallery</h2>
+     <div class="gallery">
+      <figure>
+       <img src="images/scrubber-vertical.jpeg" alt="Vertical FRP scrubber with blower and tanks">
+       <figcaption>Vertical FRP scrubber with blower and circulation tanks — rooftop install.</figcaption>
+      </figure>
+      <figure>
+       <img src="images/scrubber-twin.jpeg" alt="Twin-stage FRP scrubber assembly">
+       <figcaption>Twin-stage FRP scrubber assembly with interconnect piping.</figcaption>
+      </figure>
+      <figure>
+       <img src="images/tank-horizontal.jpeg" alt="FRP horizontal storage tank">
+       <figcaption>FRP horizontal storage tank — shop floor testing.</figcaption>
+      </figure>
+      <figure>
+       <img src="images/tank-rect.jpeg" alt="FRP rectangular tank">
+       <figcaption>FRP rectangular tank with nozzles and internal supports.</figcaption>
+      </figure>
+     </div>
+    </div>
+   </section>
+   <section id="contact">
+    <div class="container">
+     <h2>Contact</h2>
+     <div class="contact-wrap">
+      <article class="contact-card">
+       <p>
+        <strong>Address:</strong> Plot No. 107, Second Floor, Pragathi Nagar, A S Rao Nagar, Hyderabad 500062
+       </p>
+       <p>
+        <strong>Mobile:</strong> 9908666955
+       </p>
+       <p>
+        <strong>Email:</strong>
+        <a href="mailto:prochem018@gmail.com">prochem018@gmail.com</a>
+       </p>
+      </article>
+      <p class="muted">For RFQs, please share drawings/specs, media/temperature, quantity, and target date.</p>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="container footer-wrap">
+    <span>© <span id="year"></span> PROCHEM INDUSTRIES </span>
+    <span>Hyderabad, Telangana</span>
+   </div>
+  </footer>
+  <script>
+   document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+ </body>
+</html>
