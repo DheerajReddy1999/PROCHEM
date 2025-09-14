@@ -9,15 +9,22 @@
 			xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🏭%3C/text%3E%3C/svg%3E">
     <style>
       :root {
-        --bg: #060b18;
-        --bg-2: #0e1b37;
-        --card: #0f1a2e;
-        --muted: #9fb0c7;
-        --text: #e7edf5;
-        --brand: #12b981;
-        --brand-2: #0ea5e9;
-        --ring: rgba(14, 165, 233, .35);
-        --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+        --bg: #0a0f1c;
+        --bg-2: #132747;
+        --bg-3: #1e3a5f;
+        --card: #1a2332;
+        --card-hover: #1f2937;
+        --muted: #94a3b8;
+        --text: #f1f5f9;
+        --brand: #10b981;
+        --brand-2: #3b82f6;
+        --accent: #8b5cf6;
+        --ring: rgba(59, 130, 246, .35);
+        --shadow: 0 25px 50px rgba(0, 0, 0, .5);
+        --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-2: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
       }
 
       * {
@@ -32,9 +39,29 @@
       }
 
       body {
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-        color: var(--text)
+        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+        background: var(--bg);
+        background-image: var(--gradient-2), linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(600px circle at var(--x, 0) var(--y, 0), rgba(59, 130, 246, 0.08), transparent 40%);
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      body:hover::before {
+        opacity: 1;
       }
 
       a {
@@ -237,24 +264,463 @@
 
       .card {
         grid-column: span 12;
-        background: linear-gradient(180deg, #101b32 0%, #0b1426 100%);
-        border: 1px solid rgba(159, 176, 199, .18);
-        border-radius: 1.1rem;
-        padding: 1rem;
-        box-shadow: var(--shadow)
+        background: linear-gradient(145deg, var(--card) 0%, rgba(26, 35, 50, 0.8) 100%);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(148, 163, 184, .12);
+        border-radius: 1.5rem;
+        padding: 2rem;
+        box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+      }
+
+      .card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 32px 64px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        border-color: rgba(59, 130, 246, 0.3);
+      }
+
+      .card:hover::before {
+        opacity: 1;
+      }
+
+      .card * {
+        position: relative;
+        z-index: 1;
       }
 
       .card h3 {
-        margin: .5rem 0 .25rem
+        margin: .75rem 0 .5rem;
+        font-weight: 700;
+        font-size: 1.25rem;
+        background: linear-gradient(135deg, var(--text) 0%, var(--brand-2) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 0.3s ease;
+      }
+
+      .card:hover h3 {
+        -webkit-text-fill-color: var(--brand-2);
       }
 
       .card p {
-        color: var(--muted)
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .card img {
+        border-radius: 1rem;
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+
+      .card:hover img {
+        transform: scale(1.05);
+        filter: brightness(1.1);
       }
 
       @media(min-width:700px) {
         .card {
           grid-column: span 4
+        }
+      }
+
+      /* Product Section Enhancements */
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--text) 0%, var(--brand-2) 50%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .product-card {
+        overflow: hidden;
+        border-radius: 2rem;
+      }
+
+      .product-image {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        border-radius: 1.5rem;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .product-card:hover .product-image img {
+        transform: scale(1.1);
+      }
+
+      .product-overlay {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .product-card:hover .product-overlay {
+        opacity: 1;
+      }
+
+      .product-tag {
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+      }
+
+      .product-content {
+        padding: 0 0.5rem;
+      }
+
+      .product-features {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 0 0;
+      }
+
+      .product-features li {
+        padding: 0.25rem 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+      }
+
+      .product-card:hover .product-features li {
+        color: var(--text);
+      }
+
+      /* Gallery Section */
+      .gallery-section {
+        background: rgba(26, 35, 50, 0.3);
+        border-top: 1px solid rgba(148, 163, 184, 0.1);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        position: relative;
+      }
+
+      .gallery-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--gradient-2);
+        opacity: 0.6;
+      }
+
+      .gallery-section * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.5rem;
+        box-shadow: var(--shadow);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.15);
+      }
+
+      .gallery-item-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        color: white;
+        padding: 2rem;
+        transform: translateY(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .gallery-item:hover .gallery-item-overlay {
+        transform: translateY(0);
+      }
+
+      .gallery-item-overlay h4 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+
+      .gallery-item-overlay p {
+        margin: 0;
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      /* Responsive Design Optimizations */
+      @media (max-width: 768px) {
+        .section-header h2 {
+          font-size: 2rem;
+        }
+
+        .product-image img, .gallery-item img {
+          height: 200px;
+        }
+
+        .product-features li {
+          font-size: 0.85rem;
+        }
+
+        .gallery-item-overlay {
+          padding: 1.5rem;
+        }
+
+        .gallery-item-overlay h4 {
+          font-size: 1.1rem;
+        }
+
+        .card:hover {
+          transform: translateY(-4px) scale(1.01);
+        }
+
+        .product-card:hover .product-image img,
+        .gallery-item:hover img {
+          transform: scale(1.05);
+        }
+
+        .hero-inner {
+          transform: none !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .product-image img {
+          height: 180px;
+        }
+
+        .section-header {
+          margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+          font-size: 1.75rem;
+        }
+      }
+
+      /* Animation Classes */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      /* Performance Optimizations */
+      .product-image img, .gallery-item img {
+        will-change: transform;
+      }
+
+      .card, .gallery-item {
+        will-change: transform, box-shadow;
+      }
+
+      /* Reduced motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        .product-card:hover .product-image img,
+        .gallery-item:hover img,
+        .card:hover img {
+          transform: none !important;
+        }
+      }
+
+      /* Customers Section */
+      .customers-section {
+        background: rgba(19, 39, 71, 0.4);
+        border-top: 1px solid rgba(148, 163, 184, 0.1);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+      }
+
+      .customers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .customer-card {
+        background: linear-gradient(145deg, var(--card) 0%, rgba(26, 35, 50, 0.9) 100%);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(148, 163, 184, 0.15);
+        border-radius: 1.5rem;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .customer-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+      }
+
+      .customer-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        border-color: rgba(59, 130, 246, 0.3);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      .customer-card:hover::before {
+        opacity: 1;
+      }
+
+      .customer-card * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .customer-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        margin-bottom: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .customer-card:hover .customer-logo {
+        background: rgba(255, 255, 255, 0.1);
+        transform: scale(1.05);
+      }
+
+      .customer-logo img {
+        max-height: 70px;
+        max-width: 90%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        filter: brightness(1.1) contrast(1.1);
+        transition: all 0.3s ease;
+      }
+
+      .customer-card:hover .customer-logo img {
+        filter: brightness(1.3) contrast(1.2);
+        transform: scale(1.1);
+      }
+
+      .customer-info h3 {
+        margin: 0 0 0.75rem 0;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text);
+        transition: color 0.3s ease;
+      }
+
+      .customer-card:hover .customer-info h3 {
+        color: var(--brand-2);
+      }
+
+      .customer-info p {
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      @media (max-width: 768px) {
+        .customers-grid {
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 1.5rem;
+        }
+
+        .customer-card {
+          padding: 1.5rem;
+        }
+
+        .customer-logo {
+          height: 80px;
+          margin-bottom: 1rem;
+        }
+
+        .customer-logo img {
+          max-height: 60px;
         }
       }
 
@@ -338,25 +804,80 @@
           </div>
         </div>
       </section>
-      <section>
+      <section class="products-section">
         <div class="container">
-          <h2>Products</h2>
-          <p class="muted">Examples of what we build. Replace images and copy with your own SKUs/specs.</p>
-          <div class="grid" style="margin-top:1.2rem">
-            <article class="card">
-              <img src="https://images.unsplash.com/photo-1581091014534-8987c1d64711?q=80&w=1200&auto=format&fit=crop" alt="FRP tanks" />
-              <h3>FRP Tanks</h3>
-              <p>Chemical storage tanks with dual-laminate options, engineered for acids and alkalis.</p>
+          <div class="section-header">
+            <h2>Our Premium Industrial Solutions</h2>
+            <p class="muted">Engineered with precision, built for durability. Our FRP equipment serves critical industries with unmatched reliability.</p>
+          </div>
+          <div class="grid products-grid" style="margin-top:2rem">
+            <article class="card product-card">
+              <div class="product-image">
+                <img src="photos/Tank-horizontal.jpeg" alt="Horizontal FRP Storage Tank" loading="lazy" />
+                <div class="product-overlay">
+                  <span class="product-tag">High Capacity</span>
+                </div>
+              </div>
+              <div class="product-content">
+                <h3>Horizontal Storage Tanks</h3>
+                <p>Large-capacity horizontal tanks ideal for bulk chemical storage with excellent corrosion resistance and structural integrity.</p>
+                <ul class="product-features">
+                  <li>✓ Custom capacity design</li>
+                  <li>✓ Chemical-resistant linings</li>
+                  <li>✓ Integrated safety systems</li>
+                </ul>
+              </div>
             </article>
-            <article class="card">
-              <img src="https://images.unsplash.com/photo-1517438984742-1262db0837c6?q=80&w=1200&auto=format&fit=crop" alt="FRP pipes and ducting" />
-              <h3>FRP Pipes & Ducting</h3>
-              <p>Lightweight, corrosion-resistant systems with flanged joints and UV-stable resins.</p>
+            <article class="card product-card">
+              <div class="product-image">
+                <img src="photos/tank-rect.jpeg" alt="Rectangular FRP Tank" loading="lazy" />
+                <div class="product-overlay">
+                  <span class="product-tag">Space Efficient</span>
+                </div>
+              </div>
+              <div class="product-content">
+                <h3>Rectangular Process Tanks</h3>
+                <p>Optimized rectangular tanks for process applications where space efficiency and precise volume control are critical.</p>
+                <ul class="product-features">
+                  <li>✓ Space-saving design</li>
+                  <li>✓ Precise volume control</li>
+                  <li>✓ Easy maintenance access</li>
+                </ul>
+              </div>
             </article>
-            <article class="card">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop" alt="FRP gratings" />
-              <h3>FRP Gratings & Platforms</h3>
-              <p>Slip-resistant, non-conductive industrial walkways and platforms.</p>
+            <article class="card product-card">
+              <div class="product-image">
+                <img src="photos/scrubber-vertical.jpeg" alt="Vertical FRP Scrubber System" loading="lazy" />
+                <div class="product-overlay">
+                  <span class="product-tag">Pollution Control</span>
+                </div>
+              </div>
+              <div class="product-content">
+                <h3>Vertical Scrubber Systems</h3>
+                <p>Advanced vertical scrubbing systems for effective pollution control and gas treatment with superior chemical resistance.</p>
+                <ul class="product-features">
+                  <li>✓ High efficiency removal</li>
+                  <li>✓ Low pressure drop</li>
+                  <li>✓ Corrosion resistant</li>
+                </ul>
+              </div>
+            </article>
+            <article class="card product-card">
+              <div class="product-image">
+                <img src="photos/Scrubber-twin.jpeg" alt="Twin Scrubber Configuration" loading="lazy" />
+                <div class="product-overlay">
+                  <span class="product-tag">Industrial Grade</span>
+                </div>
+              </div>
+              <div class="product-content">
+                <h3>Twin Scrubber Systems</h3>
+                <p>Dual scrubber configurations for high-volume industrial applications requiring redundancy and maximum uptime.</p>
+                <ul class="product-features">
+                  <li>✓ Redundant operation</li>
+                  <li>✓ High throughput capacity</li>
+                  <li>✓ Minimal downtime</li>
+                </ul>
+              </div>
             </article>
           </div>
         </div>
@@ -376,102 +897,168 @@
           </div>
         </div>
       </section>
-      <section>
+      <section class="gallery-section">
         <div class="container">
-          <h2>Trusted by Industry Leaders</h2>
-          <p class="muted" style="text-align:center;margin-bottom:2rem">We serve pharmaceutical, power, chemical, and food processing companies across India</p>
-          <div class="logos-grid">
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/amri.webp" type="image/webp" />
+          <div class="section-header">
+            <h2>Our Latest Projects</h2>
+            <p class="muted">Explore our recent installations and see the quality that sets PROCHEM apart in industrial manufacturing.</p>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img src="photos/Scrubber-twin.jpeg" alt="Twin Scrubber Installation" loading="lazy" />
+              <div class="gallery-item-overlay">
+                <h4>Twin Scrubber System</h4>
+                <p>High-capacity dual scrubber system for pharmaceutical waste treatment with 99.5% efficiency rating.</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="photos/Tank-horizontal.jpeg" alt="Large Horizontal Tank" loading="lazy" />
+              <div class="gallery-item-overlay">
+                <h4>Chemical Storage Solution</h4>
+                <p>50,000L horizontal storage tank with specialized liner for aggressive chemical applications.</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="photos/tank-rect.jpeg" alt="Rectangular Processing Tank" loading="lazy" />
+              <div class="gallery-item-overlay">
+                <h4>Process Tank Array</h4>
+                <p>Custom rectangular tanks designed for sequential processing in pharmaceutical manufacturing.</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="photos/scrubber-vertical.jpeg" alt="Vertical Scrubber Tower" loading="lazy" />
+              <div class="gallery-item-overlay">
+                <h4>Pollution Control Tower</h4>
+                <p>Advanced vertical scrubbing system for emission control in power generation facility.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="customers-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Trusted by Industry Leaders</h2>
+            <p class="muted">We serve pharmaceutical, power, chemical, and food processing companies across India</p>
+          </div>
+          <div class="customers-grid">
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/amri.png" alt="AMRI logo" />
-              </picture>
-              <span class="label">AMRI</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/arch-pharmalabs.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>AMRI</h3>
+                <p class="muted">Pharmaceutical Research & Manufacturing</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/arch-pharmalabs.png" alt="Arch Pharmalabs logo" />
-              </picture>
-              <span class="label">Arch Pharmalabs</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/aurobindo-pharma.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>Arch Pharmalabs</h3>
+                <p class="muted">Pharmaceutical Manufacturing</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/aurobindo-pharma.png" alt="Aurobindo Pharma logo" />
-              </picture>
-              <span class="label">Aurobindo Pharma</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/biophore-india.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>Aurobindo Pharma</h3>
+                <p class="muted">Global Pharmaceutical Company</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/biophore-india.png" alt="Biophore India logo" />
-              </picture>
-              <span class="label">Biophore India</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/gayathri-power.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>Biophore India</h3>
+                <p class="muted">Biotechnology & Life Sciences</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/gayathri-power.png" alt="Gayathri Power logo" />
-              </picture>
-              <span class="label">Gayathri Power</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/granules-india.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>Gayathri Power</h3>
+                <p class="muted">Power Generation & Distribution</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/granules-india.png" alt="Granules India logo" />
-              </picture>
-              <span class="label">Granules India</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/hindustan-coca-cola-beverages.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>Granules India</h3>
+                <p class="muted">Pharmaceutical Formulations</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/hindustan-coca-cola-beverages.png" alt="Hindustan Coca-Cola Beverages logo" />
-              </picture>
-              <span class="label">Hindustan Coca-Cola</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/meenakshi-power-plant.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>Hindustan Coca-Cola</h3>
+                <p class="muted">Beverage Manufacturing</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/meenakshi-power-plant.png" alt="Meenakshi Power Plant logo" />
-              </picture>
-              <span class="label">Meenakshi Power Plant</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/meil.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>Meenakshi Power</h3>
+                <p class="muted">Thermal Power Generation</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/meil.png" alt="MEIL logo" />
-              </picture>
-              <span class="label">MEIL</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/msn-laboratories.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>MEIL</h3>
+                <p class="muted">Infrastructure & Engineering</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/msn-laboratories.png" alt="MSN Laboratories logo" />
-              </picture>
-              <span class="label">MSN Laboratories</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/sanzyme-biologics.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>MSN Laboratories</h3>
+                <p class="muted">Pharmaceutical Development</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/sanzyme-biologics.png" alt="Sanzyme Biologics logo" />
-              </picture>
-              <span class="label">Sanzyme Biologics</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/sembcorp-energy-india.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>Sanzyme Biologics</h3>
+                <p class="muted">Biotechnology & Biologics</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/sembcorp-energy-india.png" alt="Sembcorp Energy India logo" />
-              </picture>
-              <span class="label">Sembcorp Energy</span>
-            </div>
-            <div class="logo-card">
-              <picture>
-                <source srcset="photos/logos/suven-life-sciences.webp" type="image/webp" />
+              </div>
+              <div class="customer-info">
+                <h3>Sembcorp Energy</h3>
+                <p class="muted">Renewable Energy Solutions</p>
+              </div>
+            </article>
+            <article class="customer-card">
+              <div class="customer-logo">
                 <img src="photos/logos/suven-life-sciences.png" alt="Suven Life Sciences logo" />
-              </picture>
-              <span class="label">Suven Life Sciences</span>
-            </div>
+              </div>
+              <div class="customer-info">
+                <h3>Suven Life Sciences</h3>
+                <p class="muted">Drug Discovery & Development</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -499,6 +1086,112 @@
     </footer>
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Modern cursor tracking for background gradient
+      document.addEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        document.documentElement.style.setProperty('--x', x + 'px');
+        document.documentElement.style.setProperty('--y', y + 'px');
+      });
+
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Animate elements on scroll
+      document.addEventListener('DOMContentLoaded', () => {
+        const animatedElements = document.querySelectorAll('.card, .gallery-item, .section-header');
+
+        animatedElements.forEach((el, index) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(50px)';
+          el.style.transition = `opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+          observer.observe(el);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+          const scrolled = window.pageYOffset;
+          const hero = document.querySelector('.hero-inner');
+          if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.1}px)`;
+          }
+        });
+
+        // Enhanced button hover effects
+        document.querySelectorAll('.btn').forEach(btn => {
+          btn.addEventListener('mouseenter', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            this.style.setProperty('--btn-x', x + 'px');
+            this.style.setProperty('--btn-y', y + 'px');
+          });
+        });
+
+        // Product card tilt effect
+        document.querySelectorAll('.product-card, .gallery-item').forEach(card => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+          });
+
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+          });
+        });
+
+        // Smooth reveal animation for elements
+        const revealElements = () => {
+          const elements = document.querySelectorAll('[data-reveal]');
+          elements.forEach((el, index) => {
+            setTimeout(() => {
+              el.classList.add('revealed');
+            }, index * 100);
+          });
+        };
+
+        // Logo animation sequence
+        const logoCards = document.querySelectorAll('.card img[src*="logos"]');
+        logoCards.forEach((logo, index) => {
+          const card = logo.closest('.card');
+          card.style.animationDelay = `${index * 0.1}s`;
+          card.classList.add('fade-in-up');
+        });
+      });
+
+      // Preload critical images
+      const criticalImages = [
+        'photos/Tank-horizontal.jpeg',
+        'photos/tank-rect.jpeg',
+        'photos/scrubber-vertical.jpeg',
+        'photos/Scrubber-twin.jpeg'
+      ];
+
+      criticalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
     </script>
   </body>
 </html>
