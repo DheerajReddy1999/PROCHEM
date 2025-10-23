@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PROCHEM INDUSTRIES — FRP Manufacturing</title>
     <meta name="description" content="PROCHEM INDUSTRIES manufactures FRP tanks, pipes, ducting, and gratings with corrosion-resistant quality and fast lead times." />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg
-			xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🏭%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="prochem-high-resolution-logo.png">
     <style>
       :root {
         --bg: #0a0f1c;
@@ -81,11 +80,9 @@
         padding: 0 1rem
       }
 
-      /* Header + graphics */
+      /* Header */
       header {
         position: relative;
-        overflow: hidden;
-        border-bottom: 1px solid rgba(159, 176, 199, .15)
       }
 
       .nav {
@@ -104,19 +101,32 @@
       }
 
       .logo {
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        display: grid;
-        place-items: center;
-        background: radial-gradient(120px 80px at 20% 20%, #20314d, #0b1220);
-        box-shadow: var(--shadow)
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 0;
       }
 
       .nav-links {
         display: flex;
         gap: 1rem;
         align-items: center
+      }
+
+      .nav-links a:not(.btn) {
+        transition: opacity 0.3s ease;
+      }
+
+      .nav-links a:not(.btn):hover {
+        opacity: 0.6;
       }
 
       .btn {
@@ -144,66 +154,6 @@
         color: var(--text)
       }
 
-      .hero-graphics {
-        position: absolute;
-        inset: 0;
-        pointer-events: none
-      }
-
-      .orb {
-        position: absolute;
-        filter: blur(30px);
-        border-radius: 999px;
-        opacity: .55;
-        animation: float 12s ease-in-out infinite
-      }
-
-      .orb-a {
-        width: 340px;
-        height: 340px;
-        background: #0ea5e9;
-        top: -60px;
-        left: 10%
-      }
-
-      .orb-b {
-        width: 420px;
-        height: 420px;
-        background: #10b981;
-        bottom: -140px;
-        right: 8%;
-        animation-duration: 16s
-      }
-
-      @keyframes float {
-
-        0%,
-        100% {
-          transform: translateY(0)
-        }
-
-        50% {
-          transform: translateY(-14px)
-        }
-      }
-
-      .grid-overlay {
-        position: absolute;
-        inset: 0;
-        background-image: linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px);
-        background-size: 46px 46px;
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .8), rgba(0, 0, 0, .1));
-      }
-
-      .wave {
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 100%;
-        height: 120px;
-        fill: #0b1426;
-        opacity: .8
-      }
 
       /* Hero */
       .hero {
@@ -289,13 +239,11 @@
       }
 
       .card:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 32px 64px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         border-color: rgba(59, 130, 246, 0.3);
       }
 
       .card:hover::before {
-        opacity: 1;
+        opacity: 0.5;
       }
 
       .card * {
@@ -315,7 +263,9 @@
       }
 
       .card:hover h3 {
-        -webkit-text-fill-color: var(--brand-2);
+        background: linear-gradient(135deg, var(--brand-2) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
       }
 
       .card p {
@@ -325,12 +275,6 @@
 
       .card img {
         border-radius: 1rem;
-        transition: transform 0.3s ease, filter 0.3s ease;
-      }
-
-      .card:hover img {
-        transform: scale(1.05);
-        filter: brightness(1.1);
       }
 
       @media(min-width:700px) {
@@ -560,6 +504,191 @@
         }
       }
 
+      /* Minimalist Hero Section */
+      .minimalist-hero-section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem;
+        background: #fafafa;
+        overflow: hidden;
+      }
+
+      .minimalist-hero-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+        max-width: 1400px;
+        flex-grow: 1;
+        gap: 2rem;
+      }
+
+      .hero-left-text {
+        text-align: left;
+        max-width: 300px;
+      }
+
+      .hero-left-text p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .hero-read-more {
+        font-size: 0.9rem;
+        color: #000;
+        text-decoration: underline;
+        font-weight: 500;
+        transition: opacity 0.3s;
+      }
+
+      .hero-read-more:hover {
+        opacity: 0.7;
+      }
+
+      .hero-center {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 500px;
+        aspect-ratio: 1;
+      }
+
+
+      .hero-logo-img {
+        position: relative;
+        z-index: 2;
+        width: 80%;
+        height: auto;
+        max-width: 400px;
+        object-fit: contain;
+        animation: fade-in-scale 1s ease-out;
+        background: transparent;
+        mix-blend-mode: darken;
+      }
+
+      @keyframes fade-in-scale {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .hero-right-text {
+        text-align: right;
+        padding-right: 5rem;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 8vw, 7rem);
+        font-weight: 900;
+        line-height: 0.9;
+        color: #000;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-title-line1 {
+        display: block;
+      }
+
+      .hero-title-line2 {
+        display: block;
+      }
+
+      .hero-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1400px;
+        padding: 1rem 0;
+      }
+
+      .hero-social-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .hero-social-links a {
+        font-size: 0.9rem;
+        color: #666;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .hero-social-links a:hover {
+        color: #000;
+      }
+
+      .hero-location {
+        font-size: 0.9rem;
+        color: #666;
+        font-weight: 500;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .minimalist-hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .hero-left-text {
+          text-align: center;
+          order: 2;
+        }
+
+        .hero-center {
+          order: 1;
+          max-width: 350px;
+        }
+
+        .hero-right-text {
+          text-align: center;
+          order: 3;
+        }
+
+        .hero-title {
+          font-size: clamp(2.5rem, 10vw, 5rem);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .minimalist-hero-section {
+          padding: 1.5rem;
+          min-height: 90vh;
+        }
+
+        .hero-center {
+          max-width: 250px;
+        }
+
+        .hero-left-text p {
+          font-size: 0.85rem;
+        }
+
+        .hero-footer {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+
       /* Animation Classes */
       @keyframes fadeInUp {
         from {
@@ -771,32 +900,57 @@
     </style>
   </head>
   <body>
-    <header>
+    <header style="background: #ffffff; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
       <div class="container nav">
-        <a class="brand" href="index.html" aria-label="Home">
-          <span class="logo" aria-hidden>🏭</span>
+        <a class="brand" href="index.html" aria-label="Home" style="color: #000;">
+          <span class="logo"><img src="prochem-high-resolution-logo.png" alt="PROCHEM Logo" /></span>
           <span>PROCHEM INDUSTRIES</span>
         </a>
         <nav class="nav-links" aria-label="Main">
-          <a href="index.html">Home</a>
-          <a href="founder.html">Founder</a>
+          <a href="index.html" style="color: #000;">Home</a>
+          <a href="founder.html" style="color: #000;">Founder</a>
           <a href="#contact" class="btn">Get a Quote</a>
         </nav>
       </div>
-      <div class="hero-graphics" aria-hidden="true">
-        <div class="orb orb-a"></div>
-        <div class="orb orb-b"></div>
-        <div class="grid-overlay"></div>
-        <svg class="wave" viewBox="0 0 1440 200" preserveAspectRatio="none">
-          <path d="M0,64L60,64C120,64,240,64,360,96C480,128,600,192,720,186.7C840,181,960,107,1080,85.3C1200,64,1320,96,1380,112L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
-        </svg>
-      </div>
     </header>
     <main>
+      <section class="minimalist-hero-section">
+        <div class="minimalist-hero-content">
+          <!-- Left Text Content -->
+          <div class="hero-left-text">
+            <p>Leading manufacturer of fiber-reinforced plastic (FRP) solutions for industrial applications. Excellence in quality, innovation in design.</p>
+          </div>
+
+          <!-- Center - Logo -->
+          <div class="hero-center">
+            <img src="prochem-high-resolution-logo.png" alt="PROCHEM INDUSTRIES Logo" class="hero-logo-img" />
+          </div>
+
+          <!-- Right - Large Text -->
+          <div class="hero-right-text">
+            <h1 class="hero-title">
+              <span class="hero-title-line1">Build on</span>
+              <span class="hero-title-line2">Trust.</span>
+            </h1>
+          </div>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="hero-footer">
+          <div class="hero-social-links">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Twitter">tw</a>
+          </div>
+          <div class="hero-location">
+            Hyderabad, India
+          </div>
+        </div>
+      </section>
       <section class="hero">
         <div class="container hero-inner">
           <span class="kicker">FRP Specialists • Corrosion-Resistant Solutions</span>
-          <h1>FRP solutions built to last.</h1>
+          <h1>PP/FRP solutions built to last.</h1>
           <p class="tagline">We design and manufacture FRP tanks, pipes, ducting, and gratings for corrosive environments. Exceptional quality, predictable lead times.</p>
           <div class="hero-cta">
             <a class="btn" href="#contact">Request a Quote</a>
@@ -1142,24 +1296,6 @@
           });
         });
 
-        // Product card tilt effect
-        document.querySelectorAll('.product-card, .gallery-item').forEach(card => {
-          card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
-          });
-
-          card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-          });
-        });
 
         // Smooth reveal animation for elements
         const revealElements = () => {
