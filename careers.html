@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Careers — PROCHEM INDUSTRIES</title>
+    <meta name="description" content="Join PROCHEM INDUSTRIES - Career opportunities in FRP manufacturing, engineering, and industrial solutions." />
+    <link rel="icon" href="prochem-high-resolution-logo.png">
+    <link rel="stylesheet" href="assets/styles.css" />
+    <style>
+      /* White header styling */
+      header {
+        background: #ffffff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: box-shadow 0.3s ease, background 0.3s ease;
+      }
+
+      header.scrolled {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      header a {
+        color: #000 !important;
+      }
+
+      header .btn {
+        background: var(--brand);
+        color: white !important;
+      }
+
+      header a:hover {
+        opacity: 0.7;
+      }
+
+      /* Job listing styles */
+      .job-card {
+        background: rgba(26, 35, 50, 0.3);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .job-card:hover {
+        border-color: var(--brand);
+        transform: translateY(-2px);
+      }
+
+      .job-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+      }
+
+      .job-meta {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .job-meta-item {
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .job-description {
+        color: var(--muted);
+        line-height: 1.6;
+        margin: 1rem 0;
+      }
+
+      .job-requirements {
+        margin: 1rem 0;
+      }
+
+      .job-requirements ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+        color: var(--muted);
+      }
+
+      .job-requirements li {
+        margin-bottom: 0.5rem;
+      }
+
+      .apply-btn {
+        margin-top: 1rem;
+      }
+
+      /* Application form */
+      .application-form {
+        background: rgba(26, 35, 50, 0.3);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-top: 2rem;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 0.85rem;
+        border-radius: 0.9rem;
+        background: #0a1322;
+        border: 1px solid rgba(159, 176, 199, 0.25);
+        color: var(--text);
+        font-family: inherit;
+      }
+
+      .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .hero {
+        padding: 10rem 0 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="Home">
+          <span class="logo"><img src="prochem-high-resolution-logo.png" alt="PROCHEM Logo" /></span>
+          <span>PROCHEM INDUSTRIES</span>
+        </a>
+        <nav class="nav-links" aria-label="Main">
+          <a href="index.html">Home</a>
+          <a href="about-us.html">About Us</a>
+          <a href="careers.html">Careers</a>
+          <a href="index.html#contact" class="btn">Get a Quote</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <span class="kicker">Join Our Team</span>
+          <h1>Build Your Career with PROCHEM</h1>
+          <p class="tagline">Be part of a growing team that's shaping the future of FRP manufacturing and industrial solutions across India.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2>Why Work With Us?</h2>
+          <div class="grid" style="margin-top: 2rem;">
+            <article class="card">
+              <h3>Growth Opportunities</h3>
+              <p class="muted">We invest in our people through training, skill development, and clear career progression paths.</p>
+            </article>
+            <article class="card">
+              <h3>Innovative Projects</h3>
+              <p class="muted">Work on cutting-edge industrial solutions for leading pharmaceutical, power, and chemical companies.</p>
+            </article>
+            <article class="card">
+              <h3>Team Culture</h3>
+              <p class="muted">Join a collaborative environment where your ideas matter and your contributions are valued.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: rgba(26, 35, 50, 0.2); padding: 5rem 0;">
+        <div class="container">
+          <h2>Current Openings</h2>
+          <p class="muted" style="margin-bottom: 2rem;">We're always looking for talented individuals to join our team. Explore our current opportunities below.</p>
+
+          <div class="job-card">
+            <h3 class="job-title">FRP Fabrication Engineer</h3>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 Hyderabad, India</span>
+              <span class="job-meta-item">💼 Full-time</span>
+              <span class="job-meta-item">🎓 3-5 years experience</span>
+            </div>
+            <p class="job-description">We're seeking an experienced FRP Fabrication Engineer to join our manufacturing team. You'll be responsible for overseeing the fabrication of FRP equipment, ensuring quality standards, and optimizing production processes.</p>
+            <div class="job-requirements">
+              <strong>Requirements:</strong>
+              <ul>
+                <li>Bachelor's degree in Mechanical/Chemical Engineering or related field</li>
+                <li>3-5 years of hands-on experience in FRP fabrication</li>
+                <li>Knowledge of ASME, DIN, BS, IS standards</li>
+                <li>Understanding of resin systems and composite materials</li>
+                <li>Strong problem-solving and communication skills</li>
+              </ul>
+            </div>
+            <a href="#apply" class="btn apply-btn">Apply Now</a>
+          </div>
+
+          <div class="job-card">
+            <h3 class="job-title">Site Installation Supervisor</h3>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 Hyderabad, India (Travel Required)</span>
+              <span class="job-meta-item">💼 Full-time</span>
+              <span class="job-meta-item">🎓 2-4 years experience</span>
+            </div>
+            <p class="job-description">Lead on-site installation and commissioning of FRP equipment at client locations. This role requires travel to various industrial facilities across India.</p>
+            <div class="job-requirements">
+              <strong>Requirements:</strong>
+              <ul>
+                <li>Diploma or degree in Mechanical/Civil Engineering</li>
+                <li>2-4 years of experience in industrial installations</li>
+                <li>Knowledge of FRP, PP, HDPE piping and equipment</li>
+                <li>Willingness to travel extensively</li>
+                <li>Strong leadership and team management skills</li>
+              </ul>
+            </div>
+            <a href="#apply" class="btn apply-btn">Apply Now</a>
+          </div>
+
+          <div class="job-card">
+            <h3 class="job-title">Quality Control Inspector</h3>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 Hyderabad, India</span>
+              <span class="job-meta-item">💼 Full-time</span>
+              <span class="job-meta-item">🎓 1-3 years experience</span>
+            </div>
+            <p class="job-description">Ensure product quality through systematic inspection, testing, and documentation. Work closely with production teams to maintain PROCHEM's high-quality standards.</p>
+            <div class="job-requirements">
+              <strong>Requirements:</strong>
+              <ul>
+                <li>Diploma in Mechanical/Chemical Engineering or Quality Management</li>
+                <li>1-3 years of experience in quality control/inspection</li>
+                <li>Knowledge of NDT methods and quality standards</li>
+                <li>Attention to detail and documentation skills</li>
+                <li>Familiarity with composite materials is a plus</li>
+              </ul>
+            </div>
+            <a href="#apply" class="btn apply-btn">Apply Now</a>
+          </div>
+
+          <div class="job-card">
+            <h3 class="job-title">Design Engineer (FRP Equipment)</h3>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 Hyderabad, India</span>
+              <span class="job-meta-item">💼 Full-time</span>
+              <span class="job-meta-item">🎓 2-5 years experience</span>
+            </div>
+            <p class="job-description">Design and engineer FRP equipment including tanks, pipes, scrubbers, and ducting systems. Work with clients to develop custom solutions for their specific requirements.</p>
+            <div class="job-requirements">
+              <strong>Requirements:</strong>
+              <ul>
+                <li>Bachelor's degree in Mechanical/Chemical Engineering</li>
+                <li>2-5 years of experience in FRP equipment design</li>
+                <li>Proficiency in CAD software (AutoCAD, SolidWorks, etc.)</li>
+                <li>Knowledge of ASME, TEMA, and other relevant standards</li>
+                <li>Strong analytical and technical communication skills</li>
+              </ul>
+            </div>
+            <a href="#apply" class="btn apply-btn">Apply Now</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="apply">
+        <div class="container">
+          <h2>Apply for a Position</h2>
+          <p class="muted">Fill out the form below to submit your application. We'll review your profile and get back to you within 5 business days.</p>
+
+          <div class="application-form">
+            <form action="mailto:prochem018@gmail.com" method="post" enctype="text/plain">
+              <div class="form-group">
+                <label for="fullname">Full Name *</label>
+                <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name" />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="your.email@example.com" />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXXXXXXX" />
+              </div>
+
+              <div class="form-group">
+                <label for="position">Position Applied For *</label>
+                <select id="position" name="position" required>
+                  <option value="">Select a position</option>
+                  <option value="FRP Fabrication Engineer">FRP Fabrication Engineer</option>
+                  <option value="Site Installation Supervisor">Site Installation Supervisor</option>
+                  <option value="Quality Control Inspector">Quality Control Inspector</option>
+                  <option value="Design Engineer">Design Engineer (FRP Equipment)</option>
+                  <option value="Other">Other Position</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="experience">Years of Experience *</label>
+                <input type="text" id="experience" name="experience" required placeholder="e.g., 3 years" />
+              </div>
+
+              <div class="form-group">
+                <label for="education">Highest Qualification *</label>
+                <input type="text" id="education" name="education" required placeholder="e.g., B.Tech in Mechanical Engineering" />
+              </div>
+
+              <div class="form-group">
+                <label for="coverletter">Why do you want to join PROCHEM? *</label>
+                <textarea id="coverletter" name="coverletter" required placeholder="Tell us about your interest in this position and what you can bring to our team..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="resume">Resume/CV Link</label>
+                <input type="url" id="resume" name="resume" placeholder="Link to your Google Drive, Dropbox, or LinkedIn profile" />
+              </div>
+
+              <button type="submit" class="btn">Submit Application</button>
+
+              <p class="notice" style="margin-top: 1rem; color: var(--muted);">
+                By submitting this form, you agree to our privacy policy. For questions, contact us at
+                <a href="tel:+917702882111" style="color: var(--brand);">7702882111</a> or
+                <a href="tel:+919908666955" style="color: var(--brand);">9908666955</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="background: rgba(26, 35, 50, 0.2); padding: 4rem 0;">
+        <div class="container" style="text-align: center;">
+          <h2>Have Questions?</h2>
+          <p class="muted">Reach out to our HR team for more information about career opportunities at PROCHEM.</p>
+          <div style="margin-top: 1.5rem;">
+            <a href="tel:+917702882111" class="btn">Call: 7702882111</a>
+            <a href="tel:+919908666955" class="btn ghost">Call: 9908666955</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-wrap">
+        <span>&copy; 2025 PROCHEM INDUSTRIES</span>
+        <span>Hyderabad, India</span>
+      </div>
+    </footer>
+
+    <script>
+      // Sticky Header Shadow on Scroll
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

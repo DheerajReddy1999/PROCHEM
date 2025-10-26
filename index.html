@@ -51,6 +51,7 @@
 
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: 120px;
       }
 
       html,
@@ -187,7 +188,7 @@
 
       /* Hero */
       .hero {
-        padding: 5rem 0 2.5rem;
+        padding: 10rem 0 2.5rem;
         position: relative;
         z-index: 1;
       }
@@ -226,9 +227,19 @@
 
       /* Sections */
       section {
-        padding: 3rem 0;
+        padding: 5rem 0;
         position: relative;
         z-index: 1;
+      }
+
+      /* Products section - extra top spacing to prevent overlap */
+      .products-section {
+        padding-top: 9rem;
+      }
+
+      /* Section headers need extra spacing for sticky header */
+      .section-header h2 {
+        padding-top: 1rem;
       }
 
       h2 {
@@ -1018,7 +1029,8 @@
         </a>
         <nav class="nav-links" aria-label="Main">
           <a href="index.html" style="color: #000;">Home</a>
-          <a href="founder.html" style="color: #000;">Founder</a>
+          <a href="about-us.html" style="color: #000;">About Us</a>
+          <a href="careers.html" style="color: #000;">Careers</a>
           <a href="#contact" class="btn">Get a Quote</a>
         </nav>
       </div>
@@ -1059,12 +1071,19 @@
       </section>
       <section class="hero">
         <div class="container hero-inner">
-          <span class="kicker">FRP Specialists • Corrosion-Resistant Solutions</span>
-          <h1>PP/FRP solutions built to last.</h1>
-          <p class="tagline">We design and manufacture FRP tanks, pipes, ducting, and gratings for corrosive environments. Exceptional quality, predictable lead times.</p>
-          <div class="hero-cta">
-            <a class="btn" href="#contact">Request a Quote</a>
-            <a class="btn ghost" href="founder.html">Meet the Founder</a>
+          <div style="text-align: left; max-width: 900px; margin: 2rem auto; line-height: 1.8;">
+            <p>We are a reputed Engineering Industry specialized in Design, Fabrication, Erection & Commission of process Equipment and Chemical plants. We cater to the needs of Bulk Drugs, Chemicals, Food Processing, Tanneries, Paper Mills, Electric & Electronic Industries, Defence, Automobile and many allied Industries. The company is backed with promoters who have highly experienced in handling heavy tonky projects with the support of technical engineers team.</p>
+
+            <h2 style="margin-top: 3rem; padding-top: 2rem; font-size: 1.5rem;">Division</h2>
+
+            <h3 style="margin-top: 3rem; padding-top: 2rem; font-size: 1.2rem; color: var(--brand);">Equipment Division</h3>
+            <p>We at "PROCHEM INDUSTRIES" have facilities to design fabricate and supply all types of process Equipments as per ASME, DIN, BS, IS, TEMA & other International Standards. WE makes a variety of process equipment all in house and third party inspection namely Reaction Vessels, Storage tanks, Filters, Evaporators, Mixing tanks, Heat exchangers, Pressure Vessels, Material handling Equipment, Scrubbers, Blowers, Fume Extraction systems etc. employing latest manufacturing techniques and in different FRP, PP, PVC, HDPE, PVDF, Graphite and Polyurethine.</p>
+
+            <h3 style="margin-top: 3rem; padding-top: 2rem; font-size: 1.2rem; color: var(--brand);">Service Sector</h3>
+            <p>We are here at service sector division we will takeup pp, frp ,pp/frp, hdpe works at our client places like frp lining for effluient treatment tanks structure ms pipe lines rain water gutters cooling tower areas for anti corrisuoin, commissing of scrubbing system and inside the plant fume exguest systems which includes hoods pp/frp ductings pipelines and damper values etc. to control air flows as required by client.</p>
+
+            <h3 style="margin-top: 3rem; padding-top: 2rem; font-size: 1.2rem; color: var(--brand);">Pipe lines Division</h3>
+            <p>We are in pipeline division. we proudly announce we are communisioned drinking water scheme (machine bhageratha) with the help of MEIL and telangana government in gajwel constituency still running succesfully without any problem. We lay hdpe ,pp,pp/frp pipelines in different sizes according to customer requirements.</p>
           </div>
         </div>
       </section>
@@ -1161,183 +1180,18 @@
           </div>
         </div>
       </section>
-      <section class="gallery-section">
-        <div class="container">
-          <div class="section-header">
-            <h2>Our Latest Projects</h2>
-            <p class="muted">Explore our recent installations and see the quality that sets PROCHEM apart in industrial manufacturing.</p>
-          </div>
-          <div class="gallery-grid">
-            <div class="gallery-item">
-              <img src="photos/Scrubber-twin.jpeg" alt="Twin Scrubber Installation" loading="lazy" />
-              <div class="gallery-item-overlay">
-                <h4>Twin Scrubber System</h4>
-                <p>High-capacity dual scrubber system for pharmaceutical waste treatment with 99.5% efficiency rating.</p>
-              </div>
-            </div>
-            <div class="gallery-item">
-              <img src="photos/Tank-horizontal.jpeg" alt="Large Horizontal Tank" loading="lazy" />
-              <div class="gallery-item-overlay">
-                <h4>Chemical Storage Solution</h4>
-                <p>50,000L horizontal storage tank with specialized liner for aggressive chemical applications.</p>
-              </div>
-            </div>
-            <div class="gallery-item">
-              <img src="photos/tank-rect.jpeg" alt="Rectangular Processing Tank" loading="lazy" />
-              <div class="gallery-item-overlay">
-                <h4>Process Tank Array</h4>
-                <p>Custom rectangular tanks designed for sequential processing in pharmaceutical manufacturing.</p>
-              </div>
-            </div>
-            <div class="gallery-item">
-              <img src="photos/scrubber-vertical.jpeg" alt="Vertical Scrubber Tower" loading="lazy" />
-              <div class="gallery-item-overlay">
-                <h4>Pollution Control Tower</h4>
-                <p>Advanced vertical scrubbing system for emission control in power generation facility.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="customers-section">
-        <div class="container">
-          <div class="section-header">
-            <h2>Trusted by Industry Leaders</h2>
-            <p class="muted">We serve pharmaceutical, power, chemical, and food processing companies across India</p>
-          </div>
-          <div class="customers-grid">
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/amri.png" alt="AMRI logo" />
-              </div>
-              <div class="customer-info">
-                <h3>AMRI</h3>
-                <p class="muted">Pharmaceutical Research & Manufacturing</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/arch-pharmalabs.png" alt="Arch Pharmalabs logo" />
-              </div>
-              <div class="customer-info">
-                <h3>Arch Pharmalabs</h3>
-                <p class="muted">Pharmaceutical Manufacturing</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/aurobindo-pharma.png" alt="Aurobindo Pharma logo" />
-              </div>
-              <div class="customer-info">
-                <h3>Aurobindo Pharma</h3>
-                <p class="muted">Global Pharmaceutical Company</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/biophore-india.png" alt="Biophore India logo" />
-              </div>
-              <div class="customer-info">
-                <h3>Biophore India</h3>
-                <p class="muted">Biotechnology & Life Sciences</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/gayathri-power.png" alt="Gayathri Power logo" />
-              </div>
-              <div class="customer-info">
-                <h3>Gayathri Power</h3>
-                <p class="muted">Power Generation & Distribution</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/granules-india.png" alt="Granules India logo" />
-              </div>
-              <div class="customer-info">
-                <h3>Granules India</h3>
-                <p class="muted">Pharmaceutical Formulations</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/hindustan-coca-cola-beverages.png" alt="Hindustan Coca-Cola Beverages logo" />
-              </div>
-              <div class="customer-info">
-                <h3>Hindustan Coca-Cola</h3>
-                <p class="muted">Beverage Manufacturing</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/meenakshi-power-plant.png" alt="Meenakshi Power Plant logo" />
-              </div>
-              <div class="customer-info">
-                <h3>Meenakshi Power</h3>
-                <p class="muted">Thermal Power Generation</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/meil.png" alt="MEIL logo" />
-              </div>
-              <div class="customer-info">
-                <h3>MEIL</h3>
-                <p class="muted">Infrastructure & Engineering</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/msn-laboratories.png" alt="MSN Laboratories logo" />
-              </div>
-              <div class="customer-info">
-                <h3>MSN Laboratories</h3>
-                <p class="muted">Pharmaceutical Development</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/sanzyme-biologics.png" alt="Sanzyme Biologics logo" />
-              </div>
-              <div class="customer-info">
-                <h3>Sanzyme Biologics</h3>
-                <p class="muted">Biotechnology & Biologics</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/sembcorp-energy-india.png" alt="Sembcorp Energy India logo" />
-              </div>
-              <div class="customer-info">
-                <h3>Sembcorp Energy</h3>
-                <p class="muted">Renewable Energy Solutions</p>
-              </div>
-            </article>
-            <article class="customer-card">
-              <div class="customer-logo">
-                <img src="photos/logos/suven-life-sciences.png" alt="Suven Life Sciences logo" />
-              </div>
-              <div class="customer-info">
-                <h3>Suven Life Sciences</h3>
-                <p class="muted">Drug Discovery & Development</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
       <section id="contact">
         <div class="container contact-wrap">
           <h2>Request a Quote</h2>
           <p class="muted">Tell us about your application, media, temperature, and quantities. We usually reply within one business day.</p>
           <!-- Simple mailto form (opens user's email client) -->
-          <form class="contact-form" action="mailto:quotes@example.com" method="post" enctype="text/plain">
+          <form class="contact-form" action="mailto:prochem018@gmail.com" method="post" enctype="text/plain">
             <input required name="name" placeholder="Your name" />
             <input required type="email" name="email" placeholder="Email" />
             <input name="phone" placeholder="Phone (optional)" />
             <textarea required name="details" placeholder="Part, resin system, corrosion data, qty, target date…"></textarea>
             <button class="btn" type="submit">Send RFQ</button>
-            <p class="notice">Prefer email? Write to <a href="mailto:quotes@example.com">quotes@example.com</a>. </p>
+            <p class="notice">Prefer email? Write to <a href="mailto:prochem018@gmail.com">prochem018@gmail.com</a>. </p>
           </form>
         </div>
       </section>
