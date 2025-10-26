@@ -3,8 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PROCHEM INDUSTRIES — FRP Manufacturing</title>
-    <meta name="description" content="PROCHEM INDUSTRIES manufactures FRP tanks, pipes, ducting, and gratings with corrosion-resistant quality and fast lead times." />
+    <title>PROCHEM INDUSTRIES — Leading FRP Manufacturer in India | Tanks, Pipes & Ducting</title>
+    <meta name="description" content="PROCHEM INDUSTRIES - Premier manufacturer of FRP tanks, pipes, ducting, and gratings in Hyderabad, India. Corrosion-resistant solutions for industrial applications with exceptional quality and fast delivery." />
+    <meta name="keywords" content="FRP manufacturer, fiber reinforced plastic, FRP tanks, FRP pipes, FRP ducting, corrosion resistant, Hyderabad, India, industrial solutions, chemical storage" />
+    <meta name="author" content="PROCHEM INDUSTRIES" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://dheerajreddy1999.github.io/PROCHEM/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dheerajreddy1999.github.io/PROCHEM/" />
+    <meta property="og:title" content="PROCHEM INDUSTRIES — Leading FRP Manufacturer in India" />
+    <meta property="og:description" content="Premium FRP solutions for industrial applications. Tanks, pipes, ducting, and gratings with exceptional quality." />
+    <meta property="og:image" content="https://dheerajreddy1999.github.io/PROCHEM/prochem-high-resolution-logo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://dheerajreddy1999.github.io/PROCHEM/" />
+    <meta property="twitter:title" content="PROCHEM INDUSTRIES — Leading FRP Manufacturer" />
+    <meta property="twitter:description" content="Premium FRP solutions for industrial applications." />
+    <meta property="twitter:image" content="https://dheerajreddy1999.github.io/PROCHEM/prochem-high-resolution-logo.png" />
+
     <link rel="icon" href="prochem-high-resolution-logo.png">
     <style>
       :root {
@@ -28,6 +47,10 @@
 
       * {
         box-sizing: border-box
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       html,
@@ -80,9 +103,16 @@
         padding: 0 1rem
       }
 
-      /* Header */
+      /* Header - Sticky Navigation */
       header {
-        position: relative;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: box-shadow 0.3s ease, background 0.3s ease;
+      }
+
+      header.scrolled {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
 
       .nav {
@@ -714,6 +744,79 @@
         will-change: transform, box-shadow;
       }
 
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 24px;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+      }
+
+      /* WhatsApp Button */
+      .whatsapp-button {
+        position: fixed;
+        bottom: 90px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: #25D366;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 32px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      .whatsapp-button:hover {
+        transform: scale(1.1);
+        background: #128C7E;
+      }
+
       /* Reduced motion preferences */
       @media (prefers-reduced-motion: reduce) {
         * {
@@ -1235,11 +1338,51 @@
     <footer>
       <div class="container footer-wrap">
         <span>© <span id="year"></span> PROCHEM INDUSTRIES </span>
-        <span>Chicago, IL • (555) 010-0000</span>
+        <span>Hyderabad, India • +91 7702882111</span>
       </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/917702882111?text=Hello%20PROCHEM%20INDUSTRIES,%20I%20would%20like%20to%20inquire%20about%20your%20FRP%20products"
+       class="whatsapp-button"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Contact us on WhatsApp">
+      <span style="font-size: 32px;">💬</span>
+    </a>
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Sticky Header Shadow on Scroll
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // Back to Top Button
+      const backToTopButton = document.getElementById('backToTop');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
 
       // Modern cursor tracking for background gradient
       document.addEventListener('mousemove', (e) => {
